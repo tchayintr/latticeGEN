@@ -15,7 +15,7 @@ Utilizing Aho-Corasick algorithm to match substrings in raw text.
 
 
 #### Usage (see scripts/sample_gen.sh for more details)
-
+```
 usage: gen.py [-h] --input_data INPUT_DATA
               [--output_data_path_prefix OUTPUT_DATA_PATH_PREFIX]
               [--output_data_filename_prefix OUTPUT_DATA_FILENAME_PREFIX]
@@ -34,3 +34,4 @@ optional arguments:
   --save_dic
   --gen_lattice
   --unuse_single_token
+```
