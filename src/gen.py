@@ -5,6 +5,7 @@ import os
 import pathlib
 import pickle
 import re
+import time
 
 import arguments
 import common
@@ -134,14 +135,14 @@ def save_data(trie,
 
     with open(output_trie_path, 'wb') as f:
         pickle.dump(trie, f)
-        print('Save trie automaton to {}'.format(output_trie_path))
+        print('### Save trie automaton to {}'.format(output_trie_path))
 
     if lattices:
         output_lattice_path = output_prefix_path.parent / (
             output_prefix_path.name + constants.LATTICE_FORMAT)
         with open(output_lattice_path, 'wb') as f:
             pickle.dump(lattices, f)
-            print('Save lattices to {}'.format(output_lattice_path))
+            print('### Save lattices to {}'.format(output_lattice_path))
 
     if save_dic:
         output_dic_path = output_prefix_path.parent / (
@@ -149,10 +150,12 @@ def save_data(trie,
         with open(output_dic_path, 'w') as f:
             for k, v in dic.most_common():
                 f.write('{}\t{}\n'.format(k, v))
-            print('Save dictionary to {}'.format(output_dic_path))
+            print('### Save dictionary to {}'.format(output_dic_path))
 
 
 if __name__ == '__main__':
+    started_time = time.time()
+
     # get arguments
     parser = arguments.ArgumentLoader()
     args = parser.parse_args()
@@ -183,3 +186,6 @@ if __name__ == '__main__':
               path_prefix=args.output_data_path_prefix,
               prefix_filename=args.output_data_filename_prefix,
               save_dic=args.save_dic)
+
+    elapsed_time = time.time() - started_time
+    print('\nElapsed time: {} second(s)'.format(elapsed_time))

@@ -1,5 +1,5 @@
 set -e
-echo "A Python script for generating dictionary-based lattices"
+echo "# A Python script for generating dictionary-based lattices"
 
 INPUT_DATA=(
     data/samples/best2010_sample_20.seg.sl \
@@ -25,5 +25,4 @@ do
         --chunk_freq_threshold $CHUNK_THRESHOLD \
         --save_dic \
         --gen_lattice
-    echo
 done
