@@ -1,6 +1,8 @@
 import argparse
 from pathlib import Path
 
+import constants
+
 
 class ArgumentLoader(object):
     def parse_args(self):
@@ -25,5 +27,7 @@ class ArgumentLoader(object):
         parser.add_argument('--save_dic', action='store_true')
         parser.add_argument('--gen_lattice', action='store_true')
         parser.add_argument('--unuse_single_token', action='store_true')
+        parser.add_argument('--init_token', default=constants.INIT_TOKEN)
+        parser.add_argument('--eos_token', default=constants.EOS_TOKEN)
 
         return parser

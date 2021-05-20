@@ -177,7 +177,11 @@ if __name__ == '__main__':
 
     # get lattice sentences by utilzing trie
     lattices = gen_lattices(
-        trie, sents, args.unuse_single_token) if args.gen_lattice else None
+        trie,
+        sents,
+        args.unuse_single_token,
+        init_token=args.init_token,
+        eos_token=args.eos_token) if args.gen_lattice else None
 
     # write data
     save_data(trie,
